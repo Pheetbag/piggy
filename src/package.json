@@ -1,0 +1,13 @@
+{
+  "name": "piggy",
+  "version": "1.0.0",
+  "description": "Money movement tracking application",
+  "author": "Pedro Jiménez <pjjm.jimenez@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

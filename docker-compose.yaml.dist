@@ -1,0 +1,39 @@
+version: '3.6'
+
+services:
+
+  #postgres:
+  #  restart: unless-stopped
+  #  build: ./dockenv/postgres
+  #  shm_size: 1g
+  #  hostname: piggy_postgres
+  #  container_name: piggy_postgres
+  #  volumes:
+  #    - postgres:/var/lib/postgresql/data
+  #  ports:
+  #    - 5433:5432
+  #  environment:
+  #    POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+
+
+  piggy-app:
+    restart: unless-stopped
+    shm_size: '2g'
+    build: ./dockenv/node
+    hostname: piggy_app
+    container_name: piggy_app
+    ports:
+      - 8001:80
+    env_file:
+      - .env
+    volumes:
+      # - ~/.composer:/root/.composer/ fix with path to npm cache
+      - ./src:/usr/src/app
+
+#volumes:
+#  postgres:
+
+networks:
+    default:
+        external:
+            name: webproxy

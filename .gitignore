@@ -1,0 +1,4 @@
+/docker-compose.yaml
+/.env
+/src/node_modules
+.idea/
